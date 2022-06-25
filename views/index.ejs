@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>favorite movie character</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h2><i>Add your favorite movie character and movie they played</i></h2>
+  <form action="/characters" method="POST">
+    <label for="name"></label>
+    <input type="text" placeholder="name" id="name" name="name">
+    <label for="date"></label>
+    <input type="text" placeholder="movie they played" id="movie" name="movie">
+    <button type="submit">Submit</button>
+  </form>
+
+<ul class="characters">
+  <% for(var i = 0; i < characters.length; i++) {%>
+    <li class="character">
+      <span><%= characters[i].name%></span> in
+      <span><%= characters[i].movie%></span>
+      <span><%= characters[i].likes%></span>
+      <button id="like" type="button">Like</button> 
+      <button id="delete-button" type="button">Delete</button>
+    </li>
+  <% } %>
+</ul>
+
+<div id="message"></div>
+<script src="/main.js"></script>
+</body>
+</html>
